@@ -1,3 +1,48 @@
+$path-color: #007acc;
+$get-color: #39c700;
+$post-color: #0024ad;
+$put-color: #fffe00;
+$delete-color: #ff1717;
+$summary-color: #2c2c2c;
+
 .navigation {
   width: 20%;
+  height: 100vh;
+  overflow-y: scroll;
+  position: sticky;
+  top: 0;
+  ul {
+    li {
+      margin-bottom: 10px;
+      h3 {
+        color: $path-color;
+        margin-bottom: 10px;
+      }
+      ul {
+        padding-left: 15px;
+        li {
+          padding-left: 15px;
+          span {
+            font-weight: 700;
+            text-transform: uppercase;
+          }
+          .get {
+            color: $get-color;
+          }
+          .post {
+            color: $post-color;
+          }
+          .put {
+            color: $put-color;
+          }
+          .delete {
+            color: #ff1717;
+          }
+          p{
+            color: $summary-color;
+          }
+        }
+      }
+    }
+  }
 }

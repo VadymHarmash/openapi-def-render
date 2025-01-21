@@ -10,29 +10,17 @@ export const Navigation = () => {
   return (
     <div className={styles.navigation}>
       <h2>API Navigation</h2>
-      <ul style={{ listStyleType: "none", padding: 0 }}>
+      <ul>
         {Object.entries(definition.paths).map(([path, methods]) => (
-          <li key={path} style={{ marginBottom: "1rem" }}>
-            <h3 style={{ color: "#007acc", marginBottom: "0.5rem" }}>
-              Path: {path}
-            </h3>
-            <ul style={{ listStyleType: "none", paddingLeft: "1rem" }}>
+          <li key={path}>
+            <h3>Path: {path}</h3>
+            <ul>
               {Object.entries(methods).map(([method, details]) => (
-                <li key={method} style={{ marginBottom: "0.5rem" }}>
-                  <strong style={{ textTransform: "uppercase", color: "#555" }}>
+                <li key={method}>
+                  <span className={`${styles[`${method.toLowerCase()}`]}`}>
                     {method}
-                  </strong>
-                  {details.summary && (
-                    <p
-                      style={{
-                        margin: "0.5rem 0",
-                        fontSize: "0.9rem",
-                        color: "#333",
-                      }}
-                    >
-                      {details.summary}
-                    </p>
-                  )}
+                  </span>
+                  {details.summary && <p>{details.summary}</p>}
                 </li>
               ))}
             </ul>

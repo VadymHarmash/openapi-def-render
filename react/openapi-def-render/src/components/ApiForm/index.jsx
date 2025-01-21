@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import yaml from "js-yaml";
 import { DefinitionContext } from "../../context/definitionContext";
+import styles from "./apiform.module.scss";
 
 export const ApiForm = () => {
   const [error, setError] = useState(null);
@@ -31,7 +32,7 @@ export const ApiForm = () => {
         setError(null);
       } catch (error) {
         setError(
-          "Invalid file format. Please upload a valid OpenAPI JSON or YAML file.",
+          "Invalid file format. Please upload a valid OpenAPI JSON or YAML file."
         );
       }
     };
@@ -40,15 +41,16 @@ export const ApiForm = () => {
   };
 
   return (
-    <div>
+    <div className={styles.apiform}>
       <h1>OpenAPI Renderer</h1>
-      <div>
-        <h2>
-          Upload OpenAPI Definition (choose your file manually or drag it)
-        </h2>
-        <input type="file" onChange={handleFileUpload} />
+      <h2>Upload OpenAPI Definition (choose your file manually or drag it)</h2>
+      <div className={styles["file-input-wrapper"]}>
+        <label className={styles["custom-file-input"]}>
+          Choose File
+          <input type="file" onChange={handleFileUpload} />
+        </label>
       </div>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p className={styles.apiform__error}>{error}</p>}
     </div>
   );
 };
