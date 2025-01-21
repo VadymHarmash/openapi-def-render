@@ -13,7 +13,11 @@ export const Navigation = () => {
       <ul>
         {Object.entries(definition.paths).map(([path, methods]) => (
           <li key={path}>
-            <h3>Path: {path}</h3>
+            <h3>
+              <a href={`#path-${path}`} className={styles.navigation__link}>
+                Path: {path}
+              </a>
+            </h3>
             <ul>
               {Object.entries(methods).map(([method, details]) => (
                 <li key={method}>

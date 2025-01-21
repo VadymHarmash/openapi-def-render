@@ -17,6 +17,9 @@ $summary-color: #2c2c2c;
       h3 {
         color: $path-color;
         margin-bottom: 10px;
+        a{
+          color: $path-color;
+        }
       }
       ul {
         padding-left: 15px;
