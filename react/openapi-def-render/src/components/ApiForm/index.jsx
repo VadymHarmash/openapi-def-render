@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import yaml from "js-yaml";
-import { Paths } from "../Paths";
+import { DefinitionContext } from "../../context/definitionContext";
 
 export const ApiForm = () => {
-  const [definition, setDefinition] = useState(null);
   const [error, setError] = useState(null);
+  const { setDefinition } = useContext(DefinitionContext);
 
   useEffect(() => {
     if (error) setDefinition(null);
@@ -49,10 +49,6 @@ export const ApiForm = () => {
         <input type="file" onChange={handleFileUpload} />
       </div>
       {error && <p style={{ color: "red" }}>{error}</p>}
-      <div>
-        <h2>Paths</h2>
-        <Paths definition={definition} />
-      </div>
     </div>
   );
 };
