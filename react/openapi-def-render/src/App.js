@@ -1,12 +1,12 @@
 import "./App.scss";
-import { ApiForm } from "./components/ApiForm";
-import { Paths } from "./components/Paths";
+import { Header } from "./layout/Header";
+import { Main } from "./layout/Main";
 
 function App() {
   return (
     <div>
-      <ApiForm />
-      <Paths />
+      <Header />
+      <Main />
     </div>
   );
 }
